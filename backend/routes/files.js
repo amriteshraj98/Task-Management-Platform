@@ -51,10 +51,6 @@ router.post('/:taskId', protect, upload.array('files', 5), async (req, res) => {
             return res.status(404).json({ message: 'Task not found' });
         }
         
-        // Optional: Check if user is assigned or owner. 
-        // For now, allow any authenticated user to upload to a task they can see?
-        // Let's restrict to owner or generic protection. Assuming if they can see task (which currently only owner can in Task routes), they can upload.
-        // Wait, Task routes `get /` filtered by `user: req.user.id`. So tasks are private to user.
         if (task.user.toString() !== req.user.id) {
             return res.status(401).json({ message: 'Not authorized' });
         }
