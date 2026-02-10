@@ -70,9 +70,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// @desc    Get user data
-// @route   GET /api/auth/me
-// @access  Private
+
 // @desc    Get all users
 // @route   GET /api/auth/users
 // @access  Private
